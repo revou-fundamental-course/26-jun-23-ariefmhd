@@ -1,16 +1,16 @@
 // Slide
 
-const buttons = document.querySelectorAll("[data-carousel-btn]");
-const dots = document.querySelectorAll("[data-carousel-dot]");
+const buttons = document.querySelectorAll('[data-carousel-btn]');
+const dots = document.querySelectorAll('[data-carousel-dot]');
 
 function slide(button) {
   return () => {
-    const offset = button.dataset.carouselBtn === "next" ? 1 : -1;
+    const offset = button.dataset.carouselBtn === 'next' ? 1 : -1;
     const slidesContainer = button
-      .closest("[data-carousel]")
-      .querySelector("[data-carousel-slides]");
-    const slides = slidesContainer.querySelectorAll("[data-carousel-slide]");
-    const activeSlide = slidesContainer.querySelector("[data-active]");
+      .closest('[data-carousel]')
+      .querySelector('[data-carousel-slides]');
+    const slides = slidesContainer.querySelectorAll('[data-carousel-slide]');
+    const activeSlide = slidesContainer.querySelector('[data-active]');
     const activeSlideIndex = Array.from(slides).indexOf(activeSlide);
     let nextSlideIndex = activeSlideIndex + offset;
 
@@ -22,20 +22,20 @@ function slide(button) {
 
     moveDot(nextSlideIndex)();
 
-    slides[activeSlideIndex].removeAttribute("data-active");
-    slides[nextSlideIndex].setAttribute("data-active", true);
+    slides[activeSlideIndex].removeAttribute('data-active');
+    slides[nextSlideIndex].setAttribute('data-active', true);
   };
 }
 
 function moveDot(index) {
   return () => {
-    dots.forEach((dot) => dot.removeAttribute("data-active"));
-    dots[index].setAttribute("data-active", true);
+    dots.forEach((dot) => dot.removeAttribute('data-active'));
+    dots[index].setAttribute('data-active', true);
   };
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  buttons.forEach((button) => button.addEventListener("click", slide(button)));
+window.addEventListener('DOMContentLoaded', () => {
+  buttons.forEach((button) => button.addEventListener('click', slide(button)));
 
   setInterval(() => {
     const nextButton = document.querySelector("[data-carousel-btn='next']");
@@ -43,16 +43,30 @@ window.addEventListener("DOMContentLoaded", () => {
   }, 3500);
 });
 
+// Hamburger menu
+const hamburgerMenu = document.querySelector('.hamburger-menu');
+const nav = document.querySelector('.nav');
+
+hamburgerMenu.addEventListener('click', () => {
+  nav.classList.toggle('open');
+});
+
+document.body.addEventListener('click', (event) => {
+  if (!hamburgerMenu.contains(event.target) && !nav.contains(event.target)) {
+    nav.classList.remove('open');
+  }
+});
+
 // Form
 
-const form = document.getElementById("form");
-const username = document.getElementById("username");
-const email = document.getElementById("email");
+const form = document.getElementById('form');
+const username = document.getElementById('username');
+const email = document.getElementById('email');
 
 // Memeriksa jika input email menerima tombol "Enter"
 
-email.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
+email.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
     e.preventDefault(); // Mencegah pengiriman formulir secara default
     validateInputs(); // Memvalidasi input saat tombol "Enter" ditekan
   }
@@ -60,30 +74,30 @@ email.addEventListener("keydown", (e) => {
 
 // Memeriksa jika input username menerima tombol "Enter"
 
-username.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
+username.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
     e.preventDefault(); // Mencegah pengiriman formulir secara default
     if (isUsernameValid()) {
       e.target.blur(); // Melepaskan fokus dari input username
       email.focus(); // Mengalihkan fokus ke input email jika username valid
     } else {
-      setError(username, "*Nama pengguna harus terdiri dari 2 kata");
+      setError(username, '*Nama pengguna harus terdiri dari 2 kata');
     }
   }
 });
 
-form.addEventListener("submit", (e) => {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
   validateInputs();
 });
 
 const setSuccess = (element) => {
   const inputControl = element.parentElement;
-  const errorDisplay = inputControl.querySelector(".error");
+  const errorDisplay = inputControl.querySelector('.error');
 
-  errorDisplay.innerText = "";
-  inputControl.classList.add("success");
-  inputControl.classList.remove("error");
+  errorDisplay.innerText = '';
+  inputControl.classList.add('success');
+  inputControl.classList.remove('error');
 };
 
 const isValidEmail = (email) => {
@@ -94,17 +108,17 @@ const isValidEmail = (email) => {
 const validateInputs = () => {
   const usernameValue = username.value.trim();
   const emailValue = email.value.trim();
-  if (usernameValue === "") {
-    setError(username, "*Nama pengguna wajib diisi");
+  if (usernameValue === '') {
+    setError(username, '*Nama pengguna wajib diisi');
   } else if (!isValidUsername(usernameValue)) {
-    setError(username, "*Nama pengguna harus terdiri dari 2 kata");
+    setError(username, '*Nama pengguna harus terdiri dari 2 kata');
   } else {
     setSuccess(username);
   }
-  if (emailValue === "") {
-    setError(email, "*Email wajib diisi");
+  if (emailValue === '') {
+    setError(email, '*Email wajib diisi');
   } else if (!isValidEmail(emailValue)) {
-    setError(email, "Masukkan alamat email yang valid!");
+    setError(email, 'Masukkan alamat email yang valid!');
   } else {
     setSuccess(email);
   }
@@ -112,15 +126,15 @@ const validateInputs = () => {
 
 const setError = (element, message) => {
   const inputControl = element.parentElement;
-  const errorDisplay = inputControl.querySelector(".error");
+  const errorDisplay = inputControl.querySelector('.error');
 
   errorDisplay.innerText = message;
-  inputControl.classList.add("error");
-  inputControl.classList.remove("success");
+  inputControl.classList.add('error');
+  inputControl.classList.remove('success');
 };
 
 const isValidUsername = (username) => {
-  const words = username.trim().split(" ");
+  const words = username.trim().split(' ');
   return words.length === 2 && !hasSymbols(username);
 };
 
@@ -136,9 +150,9 @@ const isUsernameValid = () => {
 
 // Mengecek input username saat halaman dimuat
 
-username.addEventListener("input", () => {
+username.addEventListener('input', () => {
   const usernameValue = username.value.trim();
-  if (usernameValue !== "") {
+  if (usernameValue !== '') {
     setSuccess(username);
   }
 });

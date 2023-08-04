@@ -12,50 +12,65 @@ html {
   scroll-behavior: smooth;
 }
 
-.container {
-  justify-content: center;
-}
-
-.wrapper {
+.header {
+  background-color: #121212;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 80px;
-  background-color: #131313;
+  padding: 0.6rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 2px solid black;
+  z-index: 100;
 }
 
-.logo {
+.nav {
   display: flex;
-  padding-left: 50px;
+  gap: 1rem;
+  height: 2.5rem;
+  flex-wrap: nowrap;
 }
 
-.navigation {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.navigation > li {
-  list-style-type: none;
-  padding: 15px;
-}
-
-.navigation > li > a {
+header > nav > a {
   color: white;
-  font-size: 15px;
-  font-weight: 600;
+  padding: 0.5rem 2rem;
   text-decoration: none;
-  padding-right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
 }
 
-.navigation > li > a:hover {
-  color: #121212;
-  font-size: 15px;
-  font-weight: 600;
+header > nav > a:hover {
+  color: black;
   background-color: #ffde3d;
-  padding: 15px;
-  border-radius: 15px;
+}
+
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.open .bar:nth-child(1) {
+  transform: translateY(8px) rotate(-45deg);
+}
+
+.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.open .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(45deg);
 }
 
 .hero {
@@ -64,7 +79,7 @@ html {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 1rem;
-  margin-bottom: -20px;
+  margin-bottom: -50px;
 }
 
 .head-head {
@@ -73,8 +88,9 @@ html {
 }
 
 .head-head > h1 {
-  font-size: 30px;
+  font-size: 50px;
   font-weight: 700;
+  margin-top: 50px;
   text-align: center;
   color: #121212;
 }
@@ -82,19 +98,18 @@ html {
 .head-head > p {
   position: relative;
   text-align: center;
-  margin-top: 15px;
-  margin-bottom: 20px;
-  font-weight: 600;
-  font-size: 20px;
+  margin-top: 30px;
+  margin-bottom: -40px;
+  font-weight: 400;
+  font-size: 30px;
   color: #2c2c2c;
 }
 
 .carousel {
-  border: 10px solid #2c2c2c;
-  border-radius: 20px;
-  width: 68.5%;
-  height: 300px;
-  margin: auto;
+  width: 45%;
+  height: 335px;
+  margin-top: 50px;
+
   position: relative;
 }
 .carousel [data-carousel-slides] {
@@ -116,8 +131,8 @@ html {
 }
 .carousel [data-carousel-dots] [data-carousel-dot] {
   background-color: rgba(255, 255, 255, 1);
-  height: 0.78rem;
-  width: 0.78rem;
+  height: 0.5rem;
+  width: 0.5rem;
   border-radius: 0.78rem;
   cursor: pointer;
   transition: 0.5s;
@@ -146,7 +161,7 @@ html {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  border-radius: 8px;
+  border-radius: 25px;
 }
 .carousel-button {
   position: absolute;
@@ -182,7 +197,7 @@ html {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .ini-gbr > img {
@@ -195,7 +210,7 @@ html {
   display: block;
   background-color: #ffde3d;
   margin: 30px;
-  margin-top: 0px;
+  margin-top: 49px;
   padding: 1rem 3rem;
   border-radius: 25px;
 }
@@ -277,8 +292,7 @@ select:focus {
 }
 
 .testi-item {
-  display: grid;
-  margin-top: -155px;
+  margin-top: -150px;
   margin-left: 225px;
   align-items: center;
   padding-top: 50px;
@@ -333,7 +347,7 @@ select:focus {
   gap: 1rem;
   padding: 45px 0;
   width: 66%;
-  margin: 100px auto;
+  margin: 8rem auto;
 }
 
 .info-info {
@@ -510,155 +524,190 @@ footer .brand {
   font-size: 13px;
 }
 
-@media screen and (max-width: 600px) {
-  .wrapper {
-    flex-direction: column;
-  }
-
-  .logo {
-    padding-left: 10px;
-    margin-top: 12px;
-    margin-bottom: 85px;
-  }
-
-  .navigation {
-    justify-content: space-around;
-    margin-bottom: 20px;
-  }
-
-  .navigation > li > a {
+@media screen and (max-width: 996px) {
+  .hamburger-menu button {
     background-color: #121212;
-    border-radius: 5px;
-    padding: 10px;
+    border: none;
+    padding: 0.5rem;
+    width: max-content;
   }
 
-  .navigation > li > a:hover {
-    background-color: #ffde3d;
-    color: #121212;
-    border-radius: 5px;
-    padding: 10px;
+  .hamburger-menu button:hover {
+    cursor: pointer;
+    background-color: #121212;
+    border-radius: 10px;
   }
 
-  .hero {
-    margin: 40px 0;
-  }
-
-  .head-head > h1 {
-    margin-top: 40px;
-    font-size: 32px;
-  }
-
-  .head-head > p {
-    font-size: 20px;
-    margin-bottom: -30px;
-  }
-
-  .content {
+  .nav {
     flex-direction: column;
-    align-items: center;
+    gap: 1rem;
+    height: 100vh;
+    position: fixed;
+    top: 60px;
+    left: -100%;
+    width: 60%;
+    background-color: #121212;
+    z-index: 99;
+    transition: left 0.3s ease;
   }
 
-  .ini-gbr > img {
-    width: 89%;
-    margin-top: 50px 50px;
-    margin-bottom: 25px;
+  .hamburger-menu {
+    display: block;
   }
 
-  .testi-item {
-    margin: auto;
-    padding: 20px 0 5px;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .testi-p p {
-    display: inline-block;
-    margin-top: 10px;
-    margin-left: 10px 0;
-    margin-bottom: 10px;
-  }
-
-  .info {
-    padding: 20px 0 10px;
-    margin-top: -10px;
-    width: 300px;
-
+  .nav.open {
     display: flex;
-    align-items: center;
+    left: 0;
   }
 
-  .text-box {
-    text-align: left;
-    margin: 5px;
+  header > nav > a {
+    width: 94.5%;
+    text-align: center;
   }
 
-  .regist {
-    margin: 20px;
-    padding: 0.8rem 2rem;
+  header > nav > a {
+    padding: 0.5rem 1rem;
+    font-size: 14px;
   }
 
-  .regist h3 {
-    font-size: 22px;
-    margin-top: 15px;
-  }
+  @media screen and (max-width: 500px) {
+    .logo {
+      font-size: 20px;
+    }
 
-  .regist p {
-    font-size: 12px;
-  }
+    header > nav > a {
+      padding: 0.5rem 0.5rem;
+    }
 
-  .row {
-    grid-template-columns: 1fr;
-  }
+    .hero {
+      margin: 12px 0;
+    }
 
-  .column > #foodie {
-    width: 100%;
-  }
+    .head-head > h1 {
+      margin-top: 15px;
+      font-size: 23px;
+    }
 
-  .info-wrapper {
-    width: 90%;
-    margin: 40px auto;
-  }
+    .head-head > p {
+      font-size: 15px;
+      margin-top: 12px;
+      margin-bottom: -200px;
+    }
 
-  .info-info {
-    width: 100%;
-    margin: 0 auto;
-    margin-bottom: 30px;
-  }
+    .content {
+      flex-direction: column;
+      align-items: center;
+    }
 
-  .box-flex h1 {
-    font-size: 24px;
-    padding: 10px 100px;
-  }
+    .carousel {
+      width: 80%;
+      height: 230px;
+    }
 
-  .box {
-    width: 100%;
-  }
+    .ini-gbr > img {
+      width: 89%;
+      margin-top: 50px 50px;
+      margin-bottom: 25px;
+    }
 
-  .box .box-img {
-    width: 30%;
-  }
+    .testi-item {
+      margin: auto;
+      padding: 20px 0 5px;
+      flex-direction: column;
+      align-items: center;
+    }
 
-  .text {
-    width: 65%;
-    padding-left: 10px;
-  }
+    .testi-p p {
+      display: inline-block;
+      margin-top: 10px;
+      margin-left: 10px 0;
+      margin-bottom: 10px;
+    }
 
-  .call-Us {
-    padding: 45px 0;
-    margin-top: 70px;
-  }
+    .info {
+      padding: 20px 0 10px;
+      margin-top: -10px;
+      width: 300px;
 
-  .call-Us h3 {
-    font-size: 20px;
-  }
+      display: flex;
+      align-items: center;
+    }
 
-  .call-Us p {
-    font-size: 15px;
-    margin: 25px;
-  }
+    .text-box {
+      text-align: left;
+      margin: 5px;
+    }
 
-  .btn-u:hover {
-    transform: scale(1.1) translateY(5px);
-    transition: 0.4s;
+    .regist {
+      margin: 20px;
+      padding: 0.8rem 2rem;
+    }
+
+    .regist h3 {
+      font-size: 22px;
+      margin-top: 15px;
+    }
+
+    .regist p {
+      font-size: 12px;
+    }
+
+    .row {
+      grid-template-columns: 1fr;
+    }
+
+    .column > #foodie {
+      width: 100%;
+    }
+
+    .info-wrapper {
+      width: 90%;
+      margin: 40px auto;
+    }
+
+    .info-info {
+      width: 100%;
+      margin: 0 auto;
+      margin-bottom: 30px;
+    }
+
+    .box-flex h1 {
+      font-size: 24px;
+      padding: 10px 100px;
+    }
+
+    .box {
+      width: 100%;
+    }
+
+    .box .box-img {
+      width: 30%;
+    }
+
+    .text {
+      width: 65%;
+      padding-left: 10px;
+    }
+
+    .call-Us {
+      padding: 45px 50px;
+      margin-top: 70px;
+    }
+
+    .call-Us h3 {
+      font-size: 20px;
+      padding-bottom: 20px;
+    }
+
+    .call-Us p {
+      font-size: 15px;
+
+      margin: 5px;
+    }
+
+    .btn-u:hover {
+      transform: scale(1.1) translateY(5px);
+      transition: 0.4s;
+    }
   }
 }
