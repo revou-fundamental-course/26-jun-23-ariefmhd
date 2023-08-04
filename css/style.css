@@ -109,7 +109,7 @@ header > nav > a:hover {
   width: 45%;
   height: 335px;
   margin-top: 50px;
-
+  margin-left: 16px;
   position: relative;
 }
 .carousel [data-carousel-slides] {
@@ -210,6 +210,7 @@ header > nav > a:hover {
   display: block;
   background-color: #ffde3d;
   margin: 30px;
+  margin-left: 45px;
   margin-top: 49px;
   padding: 1rem 3rem;
   border-radius: 25px;
@@ -306,7 +307,7 @@ select:focus {
 }
 
 .info {
-  padding: 20px 0 10px;
+  padding: 25px 0 10px;
   margin-top: -10px;
   width: 300px;
 
@@ -395,7 +396,7 @@ select:focus {
 .box-flex h1 {
   display: flex;
   align-items: center;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 700;
   text-align: center;
   color: #121212;
@@ -415,11 +416,11 @@ select:focus {
 
 .box {
   width: 32%;
-  padding: 10px;
+  padding: 3.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .box .box-img {
@@ -448,7 +449,7 @@ select:focus {
   background: #ffde3d;
   padding: 50px 0;
   text-align: center;
-  width: 66%;
+  width: 78%;
   margin: 100px auto;
 }
 
@@ -576,7 +577,7 @@ footer .brand {
     }
 
     header > nav > a {
-      padding: 0.5rem 0.5rem;
+      padding: 0.4rem 0.4rem;
     }
 
     .hero {
@@ -600,7 +601,7 @@ footer .brand {
     }
 
     .carousel {
-      width: 80%;
+      width: 85.5%;
       height: 230px;
     }
 
@@ -625,12 +626,15 @@ footer .brand {
     }
 
     .info {
-      padding: 20px 0 10px;
-      margin-top: -10px;
+      padding: 5px 0 10px;
+      margin-top: 10px;
       width: 300px;
-
       display: flex;
       align-items: center;
+    }
+
+    .box {
+      padding: 10px;
     }
 
     .text-box {
@@ -663,12 +667,13 @@ footer .brand {
     .info-wrapper {
       width: 90%;
       margin: 40px auto;
+      padding: 20px;
     }
 
     .info-info {
       width: 100%;
       margin: 0 auto;
-      margin-bottom: 30px;
+      margin-bottom: 5px;
     }
 
     .box-flex h1 {
@@ -690,7 +695,7 @@ footer .brand {
     }
 
     .call-Us {
-      padding: 45px 50px;
+      padding: 20px;
       margin-top: 70px;
     }
 
